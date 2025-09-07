@@ -14,7 +14,7 @@
       // Github username (will only redirect for issues by this user)
       var ME = "sorat0mo";
 
-      /**
+      /**3
        * DO NOT TOUCH ANYTHING BELOW THIS COMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
        */
 
@@ -79,7 +79,7 @@
       var api_url = GITHUB_ISSUES_LINK;
       // Get /issues/ID
       if (isNumeric(keyword)) { api_url += keyword; }
-      else { api_url = api_url.slice(0, -1); }
+      else { api_url = api_url.slice(0, -1) + "?state=all&per_page=100"; }
       xhr.open("GET", api_url);
       xhr.send();
 
