@@ -52,9 +52,13 @@
           if (issue.user.login == ME) {
             var url = issue.title;
           } else {
-            var url = "Failed authentication (GitHub Issue not created by owner of repository)"
+            var url = "Failed authentication (GitHub Issue not created by owner of repository)";
           }
-        } else {
+        }
+        else if (issue.state != "closed") {
+        	var url = "Issue is not closed, not usable";
+        }
+        else {
           // no issue matched
           var url = "Slug not found.";
         }
