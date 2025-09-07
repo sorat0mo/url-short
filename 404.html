@@ -74,12 +74,12 @@
         if (isUrl(url) && !isQuery) {
           // redirect user
           window.location.replace(url);
-          var qr = new QRious({
+      }
+      var qr = new QRious({
           	element: document.getElementById('qrcode'),
           	value: url,
           	size: 200
-          	});
-        }
+        });
       }
 
       // Send XHR request
