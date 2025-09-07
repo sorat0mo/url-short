@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
+    <!-- load external qr js -->
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
     <script>
       /**
        * Configuration goes here
@@ -51,7 +53,7 @@
           // check if author is valid, clients can skip this check of course lol...
           if (issue.user.login == ME) {
           	if (issue.state != "closed") {
-        		var url = "Issue is not closed, not usable";
+        		var url = "Issue not closed, not redirecting.";
         	}
             	else {
             		var url = issue.title;
@@ -72,6 +74,11 @@
         if (isUrl(url) && !isQuery) {
           // redirect user
           window.location.replace(url);
+          var qr = new QRious({
+          	element: document.getElementById('qrcode'),
+          	value: url,
+          	size: 200
+          	});
         }
       }
 
@@ -86,6 +93,7 @@
     </script>
   </head>
   <body>
-    <h1 id="link">If you see this, it means you need to try again.</h1>
+    <h1 id="link">If you see this, it means the script is not working.</h1>
+    <canvas id="qrcode"></canvas>
   </body>
 </html>
