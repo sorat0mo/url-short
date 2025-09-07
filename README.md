@@ -17,12 +17,12 @@ Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](
 ![](/assets/feature1.png)
 
 Quick example:
-- Issue title: https://example.com/landing
-- Issue body (for custom slug): summer-sale
+- Issue title: `https://example.com/landing`
+- Issue body (for custom slug): `summer-sale`
 - Labels: active
 - Issue ID: 1 (automatically assigned by GitHub)
-- Visit: https://your-domain/summer-sale or https://your-domain/1
-- Preview-only view: https://your-domain/summer-sale? or https://your-domain/1?
+- Visit: `https://your-domain/summer-sale` or `https://your-domain/1`
+- Preview-only view: `https://your-domain/summer-sale?` or `https://your-domain/1?`
 
 3. To prevent unauthorized usage, the script checks for issue by authorized users. An error message will be displayed if unauthorized link is detected.
 
