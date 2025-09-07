@@ -48,41 +48,38 @@
 
       var xhr = new XMLHttpRequest();
       xhr.onload = function () {
-        var payload = JSON.parse(xhr.response);
-        var issue = "";
-        
-        // keyword is issue number
-        if (isNumeric(keyword)) {
-          issue = payload;
-        // keyword is shortened url name
-        } else {
-          for (var i=0; i<payload.length; i++) {
-            if (payload[i].body == keyword) {
-              // stop searching after first issue that matches
-              issue = payload[i];
-              break;
-            }
-          }
-        }
-        
-        // if something was returned through GH
-        if (issue != "") {
-          // check if author is valid, clients can skip this check of course lol...
-          if (issue.user.login == ME) {
-            if (issue.state != "closed") {
-              var url = "Issue not closed, not redirecting.";
-            }
-            else {
-              var url = issue.title;
-            }
-          } else {
-            var url = "Failed authentication (GitHub Issue not created by owner of repository)";
-          }
-        }
-        else {
-          // no issue matched
-          var url = "Slug not found.";
-        }
+      	var issue = "";
+	var url = "";
+	if (isNumeric(keyword)) {
+		if (xhr.status == 200) {
+			var payload = JSON.parse(xhr.response);
+			issue = payload;
+		} else {
+      // Issue number not found, fall through to slug search or error
+			issue = "";
+		}
+	} else {
+		var payload = JSON.parse(xhr.response);
+		for (var i = 0; i < payload.length; i++) {
+			if (payload[i].body == keyword) {
+				issue = payload[i];
+				break;
+			}
+		}
+	}
+		if (issue != "") {
+			if (issue.user && issue.user.login == ME) {
+				if (issue.state != "closed") {
+					url = "Issue not closed, not redirecting.";
+				} else {
+					url = issue.title;
+				}
+			} else {
+				url = "Failed authentication (GitHub Issue not created by owner of repository)";
+			}
+		} else {
+			url = "Slug or issue not found."; // Show this for both missing issues and slugs
+		}
 
         // update page with safe clickable link
         renderSafeLink("link", url);
