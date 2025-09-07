@@ -16,9 +16,27 @@ Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](
 
 ![](/assets/feature1.png)
 
-3. To prevent unauthorized usage, the script checks for issue by authorized user. An error message will be displayed if unauthorized link is detected.
+Quick example:
+- Issue title: https://example.com/landing
+- Issue body (for custom slug): summer-sale
+- Labels: active
+- Issue ID: 1 (automatically assigned by GitHub)
+- Visit: https://your-domain/summer-sale or https://your-domain/1
+- Preview-only view: https://your-domain/summer-sale? or https://your-domain/1?
 
-## Features
+3. To prevent unauthorized usage, the script checks for issue by authorized users. An error message will be displayed if unauthorized link is detected.
+
+## Label based link control
+By applying labels to issues, you can control the link's statues.
+
+Supported labels(case-insensitive):
+- active: allows redirection(mandatory)
+- disabled: blocks redirection and throws an error message
+- preview-only: shows the link and QR but never auto redirect
+
+If there is no label present, legacy behavior kicks in, only redirect when an issue is closed.
+
+## Other Features
 
 1. GitHub Issues provide database-esque feature. No reliance on external databases.
 
