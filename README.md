@@ -4,6 +4,8 @@
 
 This is a minimal URL shortener that can be entirely hosted on GitHub pages. Changes are made upon the original code.
 
+**Warning: I solicited help from GitHub Copilot when modifying the original project for my use.**
+
 Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](https://github.com/nelsontky/gh-pages-url-shortener)
 
 ## 👨‍🏫 Demo
@@ -21,6 +23,11 @@ Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](
 1. GitHub Issues provide database-esque feature. No reliance on external databases.
 
 2. Minimal deployment difficulty. It's just 2 webpages. You can host it with GitHub Pages or similar services.
+
+3. Editing the original Issue edits the URL. Some short url services charges for this. Insane, right?
+
+## Thanks
+This modification is impossible without the help from GitHub user [river](https://github.com/nelsontky/gh-pages-url-shortener/pull/112) and [wmz1024](https://github.com/nelsontky/gh-pages-url-shortener/pull/89)
 
 ## Hosting
 I host mine on vercel, in order to serve secure headers. You can still host it on GitHub Pages.
