@@ -16,7 +16,7 @@
       // Github username (will only redirect for issues by this user)
       var ME = "sorat0mo";
 
-      /**3
+      /**
        * DO NOT TOUCH ANYTHING BELOW THIS COMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
        */
 
@@ -28,6 +28,23 @@
 
       var isQuery = window.location.href.substr(-1) == "?";
       var keyword = window.location.pathname.split("/")[PATH_SEGMENTS_TO_SKIP + 1];
+
+      function renderSafeLink(containerId, url) {
+        const container = document.getElementById(containerId);
+        container.textContent = ""; // Clear previous content
+
+        if (!isUrl(url)) {
+          container.textContent = url; // Just show the message if not a real URL
+          return;
+        }
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.textContent = url;
+        a.rel = "noopener noreferrer";
+        a.target = "_blank";
+        container.appendChild(a);
+      }
 
       var xhr = new XMLHttpRequest();
       xhr.onload = function () {
@@ -52,12 +69,12 @@
         if (issue != "") {
           // check if author is valid, clients can skip this check of course lol...
           if (issue.user.login == ME) {
-          	if (issue.state != "closed") {
-        		var url = "Issue not closed, not redirecting.";
-        	}
-            	else {
-            		var url = issue.title;
-            	}
+            if (issue.state != "closed") {
+              var url = "Issue not closed, not redirecting.";
+            }
+            else {
+              var url = issue.title;
+            }
           } else {
             var url = "Failed authentication (GitHub Issue not created by owner of repository)";
           }
@@ -67,19 +84,22 @@
           var url = "Slug not found.";
         }
 
-        // update page
-        document.getElementById("link").textContent = "<a href='"+url+"'>"+url+"</a>";
+        // update page with safe clickable link
+        renderSafeLink("link", url);
 
-        // if current url ends in '?', just display the full url
+        // if current url ends in '?', just display the full url & QR
         if (isUrl(url) && !isQuery) {
           // redirect user
           window.location.replace(url);
-      }
-      var qr = new QRious({
-          	element: document.getElementById('qrcode'),
-          	value: url,
-          	size: 200
-        });
+        }
+        // Always render QR code for valid URLs, even if not redirecting
+        if (isUrl(url)) {
+          var qr = new QRious({
+            element: document.getElementById('qrcode'),
+            value: url,
+            size: 200
+          });
+        }
       }
 
       // Send XHR request
