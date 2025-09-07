@@ -1,5 +1,4 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![](https://img.shields.io/badge/Original_Project-60ed5a)](https://github.com/nelsontky/gh-pages-url-shortener)
 
 # 🔗 GitHub Pages URL Shortener
 
@@ -9,7 +8,7 @@ This is a minimal URL shortener that can be entirely hosted on GitHub pages. Cha
 
 Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](https://github.com/nelsontky/gh-pages-url-shortener)
 
-## 👨‍🏫 Demo
+## Usage
 
 1. [https://go.karsten.ws/mastodon](https://go.karsten.ws/mastodon) brings you to my mastodon profile.
 
@@ -19,7 +18,7 @@ Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](
 
 3. To prevent unauthorized usage, the script checks for issue by authorized user. An error message will be displayed if unauthorized link is detected.
 
-## ☕️ Features
+## Features
 
 1. GitHub Issues provide database-esque feature. No reliance on external databases.
 
