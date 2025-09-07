@@ -68,7 +68,7 @@
         }
 
         // update page
-        document.getElementById("link").textContent = url;
+        document.getElementById("link").textContent = "<a href='"+url+"'>"+url+"</a";
 
         // if current url ends in '?', just display the full url
         if (isUrl(url) && !isQuery) {
