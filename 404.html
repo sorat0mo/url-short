@@ -48,7 +48,7 @@
         
         // if something was returned through GH
         if (issue != "") {
-          // check if author is valid
+          // check if author is valid, clients can skip this check of course lol...
           if (issue.user.login == ME) {
             var url = issue.title;
           } else {
@@ -56,7 +56,7 @@
           }
         } else {
           // no issue matched
-          var url = "Not found";
+          var url = "Slug not found.";
         }
 
         // update page
@@ -80,6 +80,6 @@
     </script>
   </head>
   <body>
-    <h1 id="link">404</h1>
+    <h1 id="link">If you see this, it means you need to try again.</h1>
   </body>
 </html>
