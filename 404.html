@@ -50,13 +50,15 @@
         if (issue != "") {
           // check if author is valid, clients can skip this check of course lol...
           if (issue.user.login == ME) {
-            var url = issue.title;
+          	if (issue.state != "closed") {
+        		var url = "Issue is not closed, not usable";
+        	}
+            	else {
+            		var url = issue.title;
+            	}
           } else {
             var url = "Failed authentication (GitHub Issue not created by owner of repository)";
           }
-        }
-        else if (issue.state != "closed") {
-        	var url = "Issue is not closed, not usable";
         }
         else {
           // no issue matched
