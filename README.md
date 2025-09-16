@@ -10,7 +10,7 @@ Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](
 
 ## Advanced Usage
 
--. Appending a `?` at the end allows you to preview the destination, a QR code is also displayed for scanning with phone.
+- Appending a `?` at the end allows you to preview the destination, a QR code is also displayed for scanning with phone.
 
 ![](/assets/feature1.png)
 
