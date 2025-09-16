@@ -8,11 +8,9 @@ This is a minimal URL shortener that can be entirely hosted on GitHub pages. Cha
 
 Original project is here: [https://github.com/nelsontky/gh-pages-url-shortener](https://github.com/nelsontky/gh-pages-url-shortener)
 
-## Usage
+## Advanced Usage
 
-1. [https://go.karsten.ws/mastodon](https://go.karsten.ws/mastodon) brings you to my mastodon profile.
-
-2. Appending a `?` at the end allows you to preview the destination, a QR code is also displayed for scanning with phone.
+-. Appending a `?` at the end allows you to preview the destination, a QR code is also displayed for scanning with phone.
 
 ![](/assets/feature1.png)
 
